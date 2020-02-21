@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterLocation": {
-            "value": "centralus"
+            "value": "southcentralus"
         },
         "clusterName": {
             "value": ""
