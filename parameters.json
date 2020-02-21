@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterLocation": {
+            "value": "centralus"
+        },
+        "clusterName": {
+            "value": ""
+        },
+        "adminUserName": {
+            "value": ""
+        },
+        "durabilityLevel": {
+            "value": "Bronze"
+        },
+        "reliabilityLevel": {
+            "value": "None"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "vmImagePublisher": {
+            "value": "MicrosoftWindowsServer"
+        },
+        "vmImageOffer": {
+            "value": "WindowsServer"
+        },
+        "vmImageSku": {
+            "value": "2016-Datacenter"
+        },
+        "vmSku": {
+            "value": "Standard_D1_v2"
+        },
+        "vmImageVersion": {
+            "value": "latest"
+        },
+        "clusterProtectionLevel": {
+            "value": "EncryptAndSign"
+        },
+        "certificateStoreValue": {
+            "value": "My"
+        },
+        "certificateThumbprint": {
+            "value": ""
+        },
+        "sourceVaultValue": {
+            "value": ""
+        },
+        "keyVaultName": {
+            "value": ""
+        },
+        "certificateUrlValue": {
+            "value": ""
+        },
+        "storageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "supportLogStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "applicationDiagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "nt0InstanceCount": {
+            "value": 1
+        },
+        "sfReverseProxyPort": {
+            "value": 19081
+        },
+        "svcFabData": {
+            "value": "D:\\SvcFab"
+        },
+        "svcFabLogs": {
+            "value": "D:\\SvcFab\\Log"
+        },
+        "svcFabRuntime": {
+            "value": "C:\\Program Files\\Microsoft Service Fabric"
+        }
+    }
+}
