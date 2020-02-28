@@ -76,6 +76,9 @@
         },
         "svcFabRuntime": {
             "value": "C:\\Program Files\\Microsoft Service Fabric"
+        },
+        "vmssName": {
+            "value": ""
         }
     }
 }
