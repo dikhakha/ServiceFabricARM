@@ -14,6 +14,12 @@
                 "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
             }
         },
+        "vmssName": {
+            "type": "String",
+            "metadata": {
+                "description": "Name of VM scale sets"
+            }
+        },
         "adminUserName": {
             "type": "String",
             "metadata": {
@@ -223,7 +229,7 @@
         "lbProbeID0": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]",
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
-        "vmNodeType0Name": "[toLower(substring(uniqueString(parameters('clusterName')), 0, 9))]",
+        "vmNodeType0Name": "[parameters('vmssName')]",
         "vmNodeType0Size": "[parameters('vmSku')]",
         "vmStorageAccountName0": "[toLower(concat(uniqueString(resourceGroup().id), '1', '0' ))]"
     },
@@ -922,33 +928,6 @@
                 "reliabilityLevel": "[parameters('reliabilityLevel')]",
                 "upgradeMode": "Automatic",
                 "vmImage": "Windows"
-            }
-        },
-        {
-            "type": "Microsoft.KeyVault/vaults/accessPolicies",
-            "apiVersion": "2018-02-14",
-            "name": "[concat(parameters('keyVaultName'), '/add')]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachineScaleSets/', variables('vmNodeType0Name'))]"
-            ],
-            "properties": {
-                "accessPolicies": [
-                    {
-                        "name": "variables('vmNodeType0Name')",
-                        "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').identity.tenantId]",
-                        "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').identity.principalId]",
-                        "permissions": {
-                            "secrets": [
-                                "get",
-                                "list"
-                            ],
-                            "certificates": [
-                                "get",
-                                "list"
-                            ]
-                        }
-                    }
-                ]
             }
         }
     ],
